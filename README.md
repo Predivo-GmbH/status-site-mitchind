@@ -10,16 +10,22 @@ English switch. Hosted on GitHub Pages, not on our web host, so it stays up when
 - Services: `website`, `signin` ("?" texts DE + EN in `index.html`, `about`).
 - Nothing is stored on the visitor's device (D2): the language comes from `?lang=en` or the browser.
 
-## Not live yet (30.10.2026)
+## Not live yet (06.11.2026)
 
-GitHub Pages is OFF until these exist; the page holds placeholders for them:
+GitHub Pages is OFF until the Statuspage page for mitchind exists; the page still holds these placeholders:
 
 | Placeholder | Comes from |
 |---|---|
-| `mitchind.statuspage.io` | the Statuspage page for mitchind; its subdomain must be `mitchind` (or replace every `mitchind.statuspage.io`) |
+| `mitchind.statuspage.io` | the Statuspage page for mitchind; its subdomain must be `mitchind` (unclaimed on 06.11.2026), or replace every `mitchind.statuspage.io` |
 | `__MITCHIND_PAGE_ID__` | that page's id (Slack subscribe link) |
-| `__MITCHIND_SUBSCRIBE_WORKER_URL__` | Cloudflare Worker `mitchind-status-subscribe` from `worker/subscribe.js` (vars `PAGE_ID`, `ALLOWED_ORIGIN=https://status.mitchind.ch`; secrets `STATUSPAGE_API_KEY`, `TURNSTILE_SECRET`) |
-| `__MITCHIND_TURNSTILE_SITEKEY__` | a Turnstile widget for `status.mitchind.ch` only |
+
+Filled on 06.11.2026:
+
+- Subscribe endpoint: Cloudflare Worker `mitchind-status-subscribe` from `worker/subscribe.js`
+  (https://mitchind-status-subscribe.restless-silence-9277.workers.dev), var `ALLOWED_ORIGIN=https://status.mitchind.ch`,
+  Worker secrets `STATUSPAGE_API_KEY` and `TURNSTILE_SECRET`. Its var `PAGE_ID` is set once the Statuspage page exists.
+- Bot check: Turnstile widget "mitchind status subscribe" for `status.mitchind.ch` only; its public site key is the
+  `TURNSTILE_SITEKEY` constant in `index.html`, its secret is stored in mitchind `docs/Credentials.txt`.
 
 DNS: `status.mitchind.ch` CNAME → `predivo-gmbh.github.io` (Plesk zone mitchind.ch), then the second DNS
 provider per the standard §3.5.

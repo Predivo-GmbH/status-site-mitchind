@@ -413,8 +413,8 @@
 
   // Email subscribe: posted to our Cloudflare Worker (repo worker/subscribe.js), which checks Turnstile
   // and creates the subscriber through the Statuspage API; Statuspage then mails the confirmation link.
-  const SUBSCRIBE_URL = '__MITCHIND_SUBSCRIBE_WORKER_URL__'; // Worker mitchind-status-subscribe, not deployed yet
-  const TURNSTILE_SITEKEY = '__MITCHIND_TURNSTILE_SITEKEY__'; // widget for status.mitchind.ch only, not created yet
+  const SUBSCRIBE_URL = 'https://mitchind-status-subscribe.restless-silence-9277.workers.dev'; // Worker mitchind-status-subscribe (06.11.2026)
+  const TURNSTILE_SITEKEY = '0x4AAAAAAF2P4vVDId2GBRTc'; // Turnstile widget "mitchind status subscribe", status.mitchind.ch only
   let tsWidget = null, tsToken = '';
   function renderTurnstile() {
     if (tsWidget !== null || !window.turnstile) return;
